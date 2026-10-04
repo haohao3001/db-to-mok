@@ -1,1 +1,2 @@
-用于把UEFI DB中的密钥暴露给MOK，以便绕过shim实现验证内核模块签名
+用于把UEFI DB中的密钥暴露给MOK，以便绕过shim，直接使用DB中的公钥验证内核模块签名  
+会自动剥离Microsoft的证书
