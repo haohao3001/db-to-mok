@@ -1,0 +1,22 @@
+[package]
+name = "db-to-mok"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+uefi = { version = "0.41", features = [
+    "alloc",
+    "global_allocator",
+    "logger",
+    "panic_handler",
+] }
+log = "0.4.34"
+
+# UEFI 程序 panic 时不能 unwind，必须 abort
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
+opt-level = "s" # 面向体积优化（可选）
+lto = true      # （可选）
